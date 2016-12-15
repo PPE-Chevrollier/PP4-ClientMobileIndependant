@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Application Gestion Logement</string>
+    <string name="TextviewPr">Accueil Application Logement</string>
+    <string name="TextviewAdd">Ajout d\'un logement :</string>
+    <string name="TextviewListe">Liste des logements :</string>
+    <string name="title_activity_ajout_logement">AjoutLogement</string>
+</resources>
