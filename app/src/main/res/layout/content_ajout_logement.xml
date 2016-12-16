@@ -13,4 +13,67 @@
     tools:context="com.example.jordan.ppe4_androidbdd.AjoutLogement"
     tools:showIn="@layout/activity_ajout_logement">
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/editTextRue"
+        android:background="@drawable/contour_zonetexte"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/rueAdresse"
+        android:layout_alignBottom="@+id/rueAdresse" />
+
+    <TextView
+        android:text="Rue :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rueAdresse"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="CP :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/CPAdresse"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_alignBaseline="@+id/VilleAdresse"
+        android:layout_alignBottom="@+id/VilleAdresse"
+        android:layout_toEndOf="@+id/editTextVille" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_alignTop="@+id/CPAdresse"
+        android:layout_toEndOf="@+id/CPAdresse"
+        android:id="@+id/editTextCP"
+        android:background="@drawable/contour_zonetexte"
+        android:layout_alignBottom="@+id/CPAdresse" />
+
+    <TextView
+        android:text="Ville :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/VilleAdresse"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_marginTop="36dp"
+        android:layout_below="@+id/editTextRue"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTextVille"
+        android:background="@drawable/contour_zonetexte"
+        android:layout_alignBottom="@+id/CPAdresse"
+        android:layout_toEndOf="@+id/VilleAdresse"
+        android:layout_alignTop="@+id/CPAdresse" />
+
 </RelativeLayout>
