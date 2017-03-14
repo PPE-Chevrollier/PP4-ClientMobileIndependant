@@ -2,8 +2,8 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:fitsSystemWindows="true"
     tools:context="com.example.jordan.ppe4_androidbdd.AjoutLogement">
 
@@ -14,13 +14,288 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="55dp"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            android:minHeight="47dp"
+            android:elevation="0dp"
+            android:layout_width="match_parent" />
 
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_ajout_logement" />
 
+    <TabHost
+        android:id="@+id/tabHost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></TabWidget>
+
+        <FrameLayout
+        android:id="@android:id/tabcontent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/Appartement"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#1DDC00"
+                android:weightSum="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="0.05">
+
+                    <TextView
+                     android:text="@string/Codepostal"
+                     android:layout_width="100dp"
+                     android:layout_height="match_parent"
+                     android:id="@+id/CPAdresseAppartement"
+                     android:layout_toLeftOf="@+id/editTextCPAppartement"
+                     android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                    <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextCPAppartement"
+                    android:layout_toRightOf="@+id/CPAdresseAppartement"
+                    android:background="@drawable/contour_zonetexte" />
+                </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+
+                <TextView
+                    android:text="@string/Ville"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/VilleAdresseAppartement"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:layout_below="@+id/CPAdresseAppartement"
+                    android:layout_toLeftOf="@+id/editTextVilleAppartement"
+                    android:layout_alignParentStart="true" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextVilleAppartement"
+                    android:background="@drawable/contour_zonetexte"
+                    android:layout_below="@+id/editTextCPAppartement"
+                    android:layout_toRightOf="@+id/VilleAdresseAppartement" />
+            </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+                    <TextView
+                        android:text="@string/Rue"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/rueAdresseAppartement"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:layout_alignParentTop="true"
+                        android:layout_below="@+id/VilleAdresseAppartement"
+                        android:layout_toLeftOf="@+id/editTextRueAppartement" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPostalAddress"
+                        android:ems="10"
+                        android:id="@+id/editTextRueAppartement"
+                        android:background="@drawable/contour_zonetexte"
+                        android:layout_below="@+id/editTextVilleAppartement"
+                        android:layout_toRightOf="@+id/rueAdresseAppartement"
+                        android:layout_alignParentEnd="true" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+        android:id="@+id/Studio"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#da8200"
+        android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="0.05">
+
+                    <TextView
+                        android:text="@string/Codepostal"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/CPAdresseStudio"
+                        android:layout_toLeftOf="@+id/editTextCPAppartement"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/editTextCPStudio"
+                        android:layout_toRightOf="@+id/CPAdresseAppartement"
+                        android:background="@drawable/contour_zonetexte" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+
+                    <TextView
+                        android:text="@string/Ville"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/VilleAdresseStudio"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:layout_below="@+id/CPAdresseAppartement"
+                        android:layout_toLeftOf="@+id/editTextVilleAppartement"
+                        android:layout_alignParentStart="true" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/editTextVilleStudio"
+                        android:background="@drawable/contour_zonetexte"
+                        android:layout_below="@+id/editTextCPAppartement"
+                        android:layout_toRightOf="@+id/VilleAdresseAppartement" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+                    <TextView
+                        android:text="@string/Rue"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/rueAdresseStudio"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:layout_alignParentTop="true"
+                        android:layout_below="@+id/VilleAdresseAppartement"
+                        android:layout_toLeftOf="@+id/editTextRueAppartement" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPostalAddress"
+                        android:ems="10"
+                        android:id="@+id/editTextRueStudio"
+                        android:background="@drawable/contour_zonetexte"
+                        android:layout_below="@+id/editTextVilleAppartement"
+                        android:layout_toRightOf="@+id/rueAdresseAppartement"
+                        android:layout_alignParentEnd="true" />
+                </LinearLayout>
+    </LinearLayout>
+
+            <LinearLayout
+            android:id="@+id/Chambrehabitant"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#5b89ff"
+            android:orientation="vertical"
+            android:text="Chambre chez l\'habitant">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="0.05">
+
+                    <TextView
+                        android:text="@string/Codepostal"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/CPAdresseCCH"
+                        android:layout_toLeftOf="@+id/editTextCPCCH"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/editTextCPCCH"
+                        android:layout_toRightOf="@+id/CPAdresseCCH"
+                        android:background="@drawable/contour_zonetexte" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+
+                    <TextView
+                        android:text="@string/Ville"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/VilleAdresseCCH"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:layout_below="@+id/CPAdresseCCH"
+                        android:layout_toLeftOf="@+id/editTextVilleCCH"
+                        android:layout_alignParentStart="true" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/editTextVilleCCH"
+                        android:background="@drawable/contour_zonetexte"
+                        android:layout_below="@+id/editTextCPCCH"
+                        android:layout_toRightOf="@+id/VilleAdresseCCH" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+                    <TextView
+                        android:text="@string/Rue"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/rueAdresseCCH"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:layout_alignParentTop="true"
+                        android:layout_below="@+id/VilleAdresseCCH"
+                        android:layout_toLeftOf="@+id/editTextRueCCH" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPostalAddress"
+                        android:ems="10"
+                        android:id="@+id/editTextRueCCH"
+                        android:background="@drawable/contour_zonetexte"
+                        android:layout_below="@+id/editTextVilleAppartementCCH"
+                        android:layout_toRightOf="@+id/rueAdresseAppartementCCH"
+                        android:layout_alignParentEnd="true" />
+                </LinearLayout>
+        </LinearLayout>
+
+
+        </FrameLayout>
+
+    </LinearLayout>
+    </TabHost>
+
+
 </android.support.design.widget.CoordinatorLayout>
+
+

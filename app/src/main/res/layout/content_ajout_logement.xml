@@ -13,67 +13,63 @@
     tools:context="com.example.jordan.ppe4_androidbdd.AjoutLogement"
     tools:showIn="@layout/activity_ajout_logement">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPostalAddress"
-        android:ems="10"
-        android:id="@+id/editTextRue"
-        android:background="@drawable/contour_zonetexte"
+    <TabHost
+        android:layout_width="200dip"
+        android:layout_height="300dip"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/rueAdresse"
-        android:layout_alignBottom="@+id/rueAdresse" />
+        android:layout_alignParentEnd="true">
 
-    <TextView
-        android:text="Rue :"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/rueAdresse"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <TextView
-        android:text="CP :"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/CPAdresse"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:layout_alignBaseline="@+id/VilleAdresse"
-        android:layout_alignBottom="@+id/VilleAdresse"
-        android:layout_toEndOf="@+id/editTextVille" />
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></TabWidget>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_alignTop="@+id/CPAdresse"
-        android:layout_toEndOf="@+id/CPAdresse"
-        android:id="@+id/editTextCP"
-        android:background="@drawable/contour_zonetexte"
-        android:layout_alignBottom="@+id/CPAdresse" />
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <TextView
-        android:text="Ville :"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/VilleAdresse"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:layout_marginTop="36dp"
-        android:layout_below="@+id/editTextRue"
-        android:layout_alignParentStart="true" />
+                <LinearLayout
+                    android:id="@+id/tab1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-    <EditText
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/editTextVille"
-        android:background="@drawable/contour_zonetexte"
-        android:layout_alignBottom="@+id/CPAdresse"
-        android:layout_toEndOf="@+id/VilleAdresse"
-        android:layout_alignTop="@+id/CPAdresse" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:text="@string/type_logement1"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/type_logement2"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/type_logement3"/>
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
 
 </RelativeLayout>
