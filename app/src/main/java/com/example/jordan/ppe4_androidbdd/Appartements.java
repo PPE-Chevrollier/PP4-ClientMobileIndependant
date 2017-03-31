@@ -11,7 +11,7 @@ public class Appartements extends Logement {
 
     public Appartements(){}
 
-    public Appartements(char rue_logements, int ville_logements, int cp_logements, char complements_adresse_logements, int prix_logements, int surface_logements, int nb_places_appartements, int nb_chambres_appartements){
+    public Appartements(String rue_logements, int ville_logements, int cp_logements, char complements_adresse_logements, int prix_logements, int surface_logements, int nb_places_appartements, int nb_chambres_appartements){
         super(rue_logements,ville_logements,cp_logements,complements_adresse_logements, prix_logements, surface_logements);
         this.nb_places_appartements = nb_places_appartements;
         this.nb_chambres_appartements = nb_chambres_appartements;

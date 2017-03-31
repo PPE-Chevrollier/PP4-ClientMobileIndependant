@@ -10,4 +10,16 @@
     <string name="Codepostal">CP :</string>
     <string name="Ville">Ville :</string>
     <string name="Rue">Rue :</string>
+    <string name='Complementadresse'>Complement adresse :</string>
+    <string name='Prixlogement'>Prix :</string>
+    <string name='Surfacelogement'>Surface :</string>
+    <string name='NbPlaces'>Nb Places :</string>
+    <string name='NbChambres'>Nb Chambres :</string>
+
+    <string-array name="villes_array">
+        <item>Angers</item>
+        <item>Nantes</item>
+        <item>Beaufort en anjou</item>
+    </string-array>
+
 </resources>

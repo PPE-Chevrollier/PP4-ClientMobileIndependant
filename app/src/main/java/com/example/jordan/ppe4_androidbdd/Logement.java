@@ -6,7 +6,7 @@ package com.example.jordan.ppe4_androidbdd;
 
 public class Logement {
     private int id_logements;
-    private char rue_logements;
+    private String rue_logements;
     private int ville_logements;
     private int cp_logements;
     private char complements_adresse_logements;
@@ -14,7 +14,7 @@ public class Logement {
     private int surface_logements;
     public Logement(){}
 
-    public Logement(char rue_logements, int ville_logements, int cp_logements, char complements_adresse_logements, int prix_logements, int surface_logements){
+    public Logement(String rue_logements, int ville_logements, int cp_logements, char complements_adresse_logements, int prix_logements, int surface_logements){
         this.rue_logements = rue_logements;
         this.ville_logements = ville_logements;
         this.cp_logements = cp_logements;
@@ -32,11 +32,11 @@ public class Logement {
         this.id_logements = id;
     }
 
-    public char getRue_logements() {
+    public String getRue_logements() {
         return rue_logements;
     }
 
-    public void setRue_logements(char rue_logements) {
+    public void setRue_logements(String rue_logements) {
         this.rue_logements = rue_logements;
     }
 

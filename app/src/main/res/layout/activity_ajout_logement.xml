@@ -8,23 +8,6 @@
     android:fitsSystemWindows="true"
     tools:context="com.example.jordan.ppe4_androidbdd.AjoutLogement">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_height="55dp"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            android:minHeight="47dp"
-            android:elevation="0dp"
-            android:layout_width="match_parent" />
-
-    </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_ajout_logement" />
 
     <TabHost
         android:id="@+id/tabHost"
@@ -52,7 +35,7 @@
                 android:id="@+id/Appartement"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#1DDC00"
+                android:background="@android:color/background_light"
                 android:weightSum="1"
                 android:orientation="vertical">
 
@@ -92,15 +75,14 @@
                     android:layout_toLeftOf="@+id/editTextVilleAppartement"
                     android:layout_alignParentStart="true" />
 
-                <EditText
-                    android:layout_width="match_parent"
+                <Spinner
+                    android:id="@+id/villes_spinnerA"
+                    android:layout_width="fill_parent"
                     android:layout_height="match_parent"
-                    android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editTextVilleAppartement"
-                    android:background="@drawable/contour_zonetexte"
                     android:layout_below="@+id/editTextCPAppartement"
                     android:layout_toRightOf="@+id/VilleAdresseAppartement" />
+
             </LinearLayout>
 
                 <LinearLayout
@@ -127,13 +109,123 @@
                         android:layout_toRightOf="@+id/rueAdresseAppartement"
                         android:layout_alignParentEnd="true" />
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+                    <TextView
+                        android:text="@string/Complementadresse"
+                        android:layout_width="145dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/complementAdresseAppartement"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:layout_alignParentTop="true"
+                        android:layout_below="@+id/rueAdresseAppartement"
+                        android:layout_toLeftOf="@+id/editTextComplementAdresseAppartement" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPostalAddress"
+                        android:ems="10"
+                        android:id="@+id/editTextComplementAdresseAppartement"
+                        android:background="@drawable/contour_zonetexte"
+                        android:layout_below="@+id/editTextRueAppartement"
+                        android:layout_toRightOf="@+id/complementAdresseAppartement"
+                        android:layout_alignParentEnd="true" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+                    <TextView
+                        android:text="@string/Prixlogement"
+                        android:layout_width="145dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/prixAppartement"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:layout_alignParentTop="true"
+                        android:layout_below="@+id/complementAdresseAppartement"
+                        android:layout_toLeftOf="@+id/editTextPrixAppartement" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPostalAddress"
+                        android:ems="10"
+                        android:id="@+id/editTextPrixAppartement"
+                        android:background="@drawable/contour_zonetexte"
+                        android:layout_below="@+id/editTextComplementAdresseAppartement"
+                        android:layout_toRightOf="@+id/prixAppartement"
+                        android:layout_alignParentEnd="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+                <TextView
+                    android:text="@string/Surfacelogement"
+                    android:layout_width="145dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/surfaceAppartement"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:layout_alignParentTop="true"
+                    android:layout_below="@+id/prixAppartement"
+                    android:layout_toLeftOf="@+id/editTextSurfaceAppartement" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textPostalAddress"
+                    android:ems="10"
+                    android:id="@+id/editTextSurfaceAppartement"
+                    android:background="@drawable/contour_zonetexte"
+                    android:layout_below="@+id/editTextPrixAppartement"
+                    android:layout_toRightOf="@+id/SurfaceAppartement"
+                    android:layout_alignParentEnd="true" />
+            </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+                    <TextView
+                        android:text="@string/NbPlaces"
+                        android:layout_width="145dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/nbPlacesAppartement"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:layout_alignParentTop="true"
+                        android:layout_below="@+id/SurfaceAppartement"
+                        android:layout_toLeftOf="@+id/editTextNbPlacesAppartement" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPostalAddress"
+                        android:ems="10"
+                        android:id="@+id/editTextNbPlacesAppartement"
+                        android:background="@drawable/contour_zonetexte"
+                        android:layout_below="@+id/editTextSurfaceAppartement"
+                        android:layout_toRightOf="@+id/NbPlacesAppartement"
+                        android:layout_alignParentEnd="true" />
+
+
+                </LinearLayout>
+
+                <Button
+                    android:text="Ajouter"
+                    android:layout_width="152dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="cliqueButtonAjouterA"
+                    android:id="@+id/buttonAjouterAppartement"
+                    android:elevation="0dp" />
+
             </LinearLayout>
 
             <LinearLayout
         android:id="@+id/Studio"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#da8200"
+        android:background="#ffffff"
         android:orientation="vertical">
 
                 <LinearLayout
@@ -146,7 +238,7 @@
                         android:layout_width="100dp"
                         android:layout_height="match_parent"
                         android:id="@+id/CPAdresseStudio"
-                        android:layout_toLeftOf="@+id/editTextCPAppartement"
+                        android:layout_toLeftOf="@+id/editTextCPStudio"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                     <EditText
@@ -155,7 +247,7 @@
                         android:inputType="textPersonName"
                         android:ems="10"
                         android:id="@+id/editTextCPStudio"
-                        android:layout_toRightOf="@+id/CPAdresseAppartement"
+                        android:layout_toRightOf="@+id/CPAdresseStudio"
                         android:background="@drawable/contour_zonetexte" />
                 </LinearLayout>
                 <LinearLayout
@@ -168,19 +260,17 @@
                         android:layout_height="match_parent"
                         android:id="@+id/VilleAdresseStudio"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                        android:layout_below="@+id/CPAdresseAppartement"
-                        android:layout_toLeftOf="@+id/editTextVilleAppartement"
+                        android:layout_below="@+id/CPAdresseStudio"
+                        android:layout_toLeftOf="@+id/editTextVilleStudio"
                         android:layout_alignParentStart="true" />
 
-                    <EditText
-                        android:layout_width="match_parent"
+                    <Spinner
+                        android:id="@+id/villes_spinnerS"
+                        android:layout_width="fill_parent"
                         android:layout_height="match_parent"
-                        android:inputType="textPersonName"
                         android:ems="10"
-                        android:id="@+id/editTextVilleStudio"
-                        android:background="@drawable/contour_zonetexte"
-                        android:layout_below="@+id/editTextCPAppartement"
-                        android:layout_toRightOf="@+id/VilleAdresseAppartement" />
+                        android:layout_below="@+id/editTextCPStudio"
+                        android:layout_toRightOf="@+id/VilleAdresseStudio" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -193,8 +283,8 @@
                         android:id="@+id/rueAdresseStudio"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:layout_alignParentTop="true"
-                        android:layout_below="@+id/VilleAdresseAppartement"
-                        android:layout_toLeftOf="@+id/editTextRueAppartement" />
+                        android:layout_below="@+id/VilleAdresseStudio"
+                        android:layout_toLeftOf="@+id/editTextRueStudio" />
 
                     <EditText
                         android:layout_width="match_parent"
@@ -203,17 +293,123 @@
                         android:ems="10"
                         android:id="@+id/editTextRueStudio"
                         android:background="@drawable/contour_zonetexte"
-                        android:layout_below="@+id/editTextVilleAppartement"
-                        android:layout_toRightOf="@+id/rueAdresseAppartement"
+                        android:layout_below="@+id/editTextVilleStudio"
+                        android:layout_toRightOf="@+id/rueAdresseStudio"
                         android:layout_alignParentEnd="true" />
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+                    <TextView
+                        android:text="@string/Complementadresse"
+                        android:layout_width="145dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/complementAdresseStudio"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:layout_alignParentTop="true"
+                        android:layout_below="@+id/rueAdresseStudio"
+                        android:layout_toLeftOf="@+id/editTextComplementAdresseStudio" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPostalAddress"
+                        android:ems="10"
+                        android:id="@+id/editTextComplementAdresseStudio"
+                        android:background="@drawable/contour_zonetexte"
+                        android:layout_below="@+id/editTextRueStudio"
+                        android:layout_toRightOf="@+id/rueAdresseStudio"
+                        android:layout_alignParentEnd="true" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+                    <TextView
+                        android:text="@string/Prixlogement"
+                        android:layout_width="145dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/prixStudio"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:layout_alignParentTop="true"
+                        android:layout_below="@+id/complementAdresseStudio"
+                        android:layout_toLeftOf="@+id/editTextprixStudio" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPostalAddress"
+                        android:ems="10"
+                        android:id="@+id/editTextprixStudio"
+                        android:background="@drawable/contour_zonetexte"
+                        android:layout_below="@+id/editTextComplementAdresseStudio"
+                        android:layout_toRightOf="@+id/prixStudio"
+                        android:layout_alignParentEnd="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+                    <TextView
+                        android:text="@string/Surfacelogement"
+                        android:layout_width="145dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/surfaceStudio"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:layout_alignParentTop="true"
+                        android:layout_below="@+id/prixStudio"
+                        android:layout_toLeftOf="@+id/editTextSurfaceStudio" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPostalAddress"
+                        android:ems="10"
+                        android:id="@+id/editTextSurfaceStudio"
+                        android:background="@drawable/contour_zonetexte"
+                        android:layout_below="@+id/editTextPrixStudio"
+                        android:layout_toRightOf="@+id/SurfaceStudio"
+                        android:layout_alignParentEnd="true" />
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="@string/NbPlaces"
+                    android:layout_width="145dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/nbPlacesStudio"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:layout_alignParentTop="true"
+                    android:layout_below="@+id/SurfaceStudio"
+                    android:layout_toLeftOf="@+id/editTextNbPlacesStudio" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textPostalAddress"
+                    android:ems="10"
+                    android:id="@+id/editTextNbPlacesStudio"
+                    android:background="@drawable/contour_zonetexte"
+                    android:layout_below="@+id/editTextSurfaceStudio"
+                    android:layout_toRightOf="@+id/NbPlacesStudio"
+                    android:layout_alignParentEnd="true" />
+                </LinearLayout>
+                <Button
+                    android:text="Ajouter"
+                    android:layout_width="152dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="cliqueButtonAjouterS"
+                    android:id="@+id/buttonAjouterStudio" />
     </LinearLayout>
+
 
             <LinearLayout
             android:id="@+id/Chambrehabitant"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#5b89ff"
+            android:background="#ffffff"
             android:orientation="vertical"
             android:text="Chambre chez l\'habitant">
 
@@ -241,7 +437,8 @@
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="60dp">
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:text="@string/Ville"
@@ -253,15 +450,14 @@
                         android:layout_toLeftOf="@+id/editTextVilleCCH"
                         android:layout_alignParentStart="true" />
 
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:inputType="textPersonName"
+                    <Spinner
+                        android:id="@+id/villes_spinnerC"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
                         android:ems="10"
-                        android:id="@+id/editTextVilleCCH"
-                        android:background="@drawable/contour_zonetexte"
                         android:layout_below="@+id/editTextCPCCH"
                         android:layout_toRightOf="@+id/VilleAdresseCCH" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -284,12 +480,117 @@
                         android:ems="10"
                         android:id="@+id/editTextRueCCH"
                         android:background="@drawable/contour_zonetexte"
-                        android:layout_below="@+id/editTextVilleAppartementCCH"
-                        android:layout_toRightOf="@+id/rueAdresseAppartementCCH"
+                        android:layout_below="@+id/editTextVilleCCH"
+                        android:layout_toRightOf="@+id/rueAdresseCCH"
                         android:layout_alignParentEnd="true" />
                 </LinearLayout>
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+                    <TextView
+                        android:text="@string/Complementadresse"
+                        android:layout_width="145dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/complementAdresseCCH"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:layout_alignParentTop="true"
+                        android:layout_below="@+id/VilleAdresseCCH"
+                        android:layout_toLeftOf="@+id/editTextRueCCH" />
 
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPostalAddress"
+                        android:ems="10"
+                        android:id="@+id/editTextComplementAdresseCCH"
+                        android:background="@drawable/contour_zonetexte"
+                        android:layout_below="@+id/editTextRueCCH"
+                        android:layout_toRightOf="@+id/complementAdresseCCH"
+                        android:layout_alignParentEnd="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+                    <TextView
+                        android:text="@string/Prixlogement"
+                        android:layout_width="145dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/prixCCH"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:layout_alignParentTop="true"
+                        android:layout_below="@+id/complementAdresseCCH"
+                        android:layout_toLeftOf="@+id/editTextprixCCH" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPostalAddress"
+                        android:ems="10"
+                        android:id="@+id/editTextprixCCH"
+                        android:background="@drawable/contour_zonetexte"
+                        android:layout_below="@+id/editTextComplementAdresseCCH"
+                        android:layout_toRightOf="@+id/prixCCH"
+                        android:layout_alignParentEnd="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+                    <TextView
+                        android:text="@string/Surfacelogement"
+                        android:layout_width="145dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/surfaceCCH"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:layout_alignParentTop="true"
+                        android:layout_below="@+id/prixCCH"
+                        android:layout_toLeftOf="@+id/editTextSurfaceCCH" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPostalAddress"
+                        android:ems="10"
+                        android:id="@+id/editTextSurfaceCCH"
+                        android:background="@drawable/contour_zonetexte"
+                        android:layout_below="@+id/editTextPrixCCH"
+                        android:layout_toRightOf="@+id/SurfaceCCH"
+                        android:layout_alignParentEnd="true" />
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="@string/NbPlaces"
+                    android:layout_width="145dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/nbPlacesCCH"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:layout_alignParentTop="true"
+                    android:layout_below="@+id/SurfaceCCH"
+                    android:layout_toLeftOf="@+id/editTextNbPlacesCCH" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textPostalAddress"
+                    android:ems="10"
+                    android:id="@+id/editTextNbPlacesCCH"
+                    android:background="@drawable/contour_zonetexte"
+                    android:layout_below="@+id/editTextSurfaceCCH"
+                    android:layout_toRightOf="@+id/NbPlacesCCH"
+                    android:layout_alignParentEnd="true" />
+                </LinearLayout>
+                <Button
+                    android:text="Ajouter"
+                    android:layout_width="152dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="cliqueButtonAjouterC"
+                    android:id="@+id/buttonAjouterCCH" />
+        </LinearLayout>
 
         </FrameLayout>
 

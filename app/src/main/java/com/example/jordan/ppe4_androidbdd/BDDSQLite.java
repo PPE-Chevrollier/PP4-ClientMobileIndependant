@@ -9,10 +9,15 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 
 public class BDDSQLite extends SQLiteOpenHelper {
+    //creation tables
     private static final String TABLE_LOGEMENT = "table_logement";
     private static final String TABLE_APPARTEMENTS = "table_appartements";
     private static final String TABLE_STUDIOS = "table_studios";
     private static final String TABLE_CHAMBRESHABITANT = "table_chambresHabitant";
+
+
+
+    //creation champ
     private static final String COL_ID_LOGEMENTS = "id_logements";
     private static final String COL_RUE_LOGEMENTS = "rue_logements";
     private static final String COL_VILLE_LOGEMENTS = "ville_logements";
@@ -25,20 +30,29 @@ public class BDDSQLite extends SQLiteOpenHelper {
     private static final String COL_MEUBLE_STUDIOS = "nb_meuble_studios";
     private static final String COL_PARTIES_COMMUNES_CHAMBRESHABITANT = "nb_parties_communes_chambreshabitant";
 
+
     private static final String CREATE_TABLE_LOGEMENT = "CREATE TABLE " + TABLE_LOGEMENT + " ("
-            + COL_ID_LOGEMENTS + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_RUE_LOGEMENTS + " CHAR NOT NULL, "
-            + COL_VILLE_LOGEMENTS + " INTEGER NOT NULL)" + COL_CP_LOGEMENTS + "INTEGER NOT NULL" + COL_COMPLEMENT_ADRESSE_LOGEMENTS + "CHAR"
-            + COL_PRIX_LOGEMENTS + "INTEGER NOT NULL" + COL_SURFACE_LOGEMENTS + "INTEGER NOT NULL";
+            + COL_ID_LOGEMENTS + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_RUE_LOGEMENTS + " TEXT NOT NULL, "
+            + COL_VILLE_LOGEMENTS + " INTEGER NOT NULL" + COL_CP_LOGEMENTS + "INTEGER NOT NULL" + COL_COMPLEMENT_ADRESSE_LOGEMENTS + "TEXT"
+            + COL_PRIX_LOGEMENTS + "INTEGER NOT NULL" + COL_SURFACE_LOGEMENTS + "INTEGER NOT NULL)";
+
+    private static final String TABLE_LOGEMENT_DROP = "DROP TABLE IF EXISTS " + TABLE_LOGEMENT + ";";
 
 
     private static final String CREATE_TABLE_APPARTEMENTS = "CREATE TABLE " + TABLE_APPARTEMENTS + " ("
-            + COL_NB_PIECES_APPARTEMENTS + "TEXT" + COL_NB_CHAMBRES_APPARTEMENTS + "TEXT";
+            + COL_NB_PIECES_APPARTEMENTS + "INTEGER" + COL_NB_CHAMBRES_APPARTEMENTS + "INTEGER)";
+
+    private static final String TABLE_APPARTEMENTS_DROP = "DROP TABLE IF EXISTS " + TABLE_APPARTEMENTS + ";";
 
     private static final String CREATE_TABLE_STUDIOS = "CREATE TABLE " + TABLE_STUDIOS + " ("
-            + COL_MEUBLE_STUDIOS + "TEXT";
+            + COL_MEUBLE_STUDIOS + "TEXT)";
+
+    private static final String TABLE_STUDIOS_DROP = "DROP TABLE IF EXISTS " + TABLE_STUDIOS + ";";
 
     private static final String CREATE_TABLE_CHAMBRESHABITANT = "CREATE TABLE " + TABLE_CHAMBRESHABITANT + " ("
-            + COL_PARTIES_COMMUNES_CHAMBRESHABITANT + "TEXT";
+            + COL_PARTIES_COMMUNES_CHAMBRESHABITANT + "TEXT)";
+
+    private static final String TABLE_CHAMBRESHABITANT_DROP = "DROP TABLE IF EXISTS " + TABLE_CHAMBRESHABITANT + ";";
 
     public BDDSQLite(Context context, String name, CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -54,6 +68,10 @@ public class BDDSQLite extends SQLiteOpenHelper {
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL(TABLE_LOGEMENT_DROP);
+        db.execSQL(TABLE_APPARTEMENTS_DROP);
+        db.execSQL(TABLE_STUDIOS_DROP);
+        db.execSQL(TABLE_CHAMBRESHABITANT_DROP);
+        onCreate(db);
     }
 }
