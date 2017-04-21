@@ -22,5 +22,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void CliqueListeButton (View view) {
+        startActivity(new Intent(this, ListeLogement.class));
+    }
+
 
 }

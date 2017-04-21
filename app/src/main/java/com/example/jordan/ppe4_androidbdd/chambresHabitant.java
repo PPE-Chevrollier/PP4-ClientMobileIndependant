@@ -10,7 +10,7 @@ public class chambresHabitant extends Logement{
 
     public chambresHabitant(){}
 
-    public chambresHabitant(String rue_logements, int ville_logements, int cp_logements, char complements_adresse_logements, int prix_logements, int surface_logements, int parties_communes_chambreshabitant){
+    public chambresHabitant(String rue_logements, int ville_logements, int cp_logements, String complements_adresse_logements, int prix_logements, int surface_logements, int parties_communes_chambreshabitant){
         super(rue_logements,ville_logements,cp_logements,complements_adresse_logements, prix_logements, surface_logements);
         this.parties_communes_chambreshabitant = parties_communes_chambreshabitant;
     }

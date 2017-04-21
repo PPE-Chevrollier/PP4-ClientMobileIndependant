@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -84,7 +85,9 @@ public class AjoutLogement extends AppCompatActivity {
 
     private View.OnClickListener btnclick = new View.OnClickListener() {
         public void onClick(View v) {
+            LogementDAO l = new LogementDAO();
             switch (v.getId()) {
+
                 case R.id.buttonAjouterAppartement:
 /*le clic sur le bouton a eu lieu, qu'est-ce que l'on fait*/
                     Toast.makeText(getApplicationContext(), "Enregistrement de l'appartement en cours", Toast.LENGTH_SHORT).show();
@@ -93,11 +96,14 @@ public class AjoutLogement extends AppCompatActivity {
                     Logement lA = new Logement();
                     lA.setRue_logements(((EditText) findViewById(R.id.editTextRueAppartement)).getText().toString());
                     /*lA.setVille_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextVilleAppartement)).getText().toString()));*/
-                    lA.setCp_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextCPAppartement)).getText().toString())); 
-                    /*lA.setComplements_adresse_logements((char) Integer.parseInt(((EditText) findViewById(R.id.editTextComplementAdresseAppartement)).getText().toString()));*/
+                    lA.setCp_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextCPAppartement)).getText().toString()));
+                    lA.setComplements_adresse_logements(((EditText) findViewById(R.id.editTextComplementAdresseAppartement)).getText().toString());
                     lA.setPrix_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextPrixAppartement)).getText().toString()));
-                    lA.setSurface_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextVilleAppartement)).getText().toString()));
-                    Toast.makeText(getApplicationContext(), lA.getRue_logements()+" \n"+lA.getVille_logements()+" \n"+lA.getCp_logements()+" \n"+lA.getPrix_logements()+" \n"+lA.getSurface_logements(), Toast.LENGTH_LONG).show();
+                    lA.setSurface_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextSurfaceAppartement)).getText().toString()));
+                    /*Toast.makeText(getApplicationContext(), lA.getRue_logements()+" \n"+lA.getVille_logements()+" \n"+lA.getCp_logements()+" \n"+lA.getPrix_logements()+" \n"+lA.getSurface_logements(), Toast.LENGTH_LONG).show();*/
+                    Log.d("logement",lA.toString());
+                    l.inserer(lA);
+
                 break;
                 case R.id.buttonAjouterStudio:
 /*le clic sur le bouton a eu lieu, qu'est-ce que l'on fait*/
@@ -110,9 +116,10 @@ public class AjoutLogement extends AppCompatActivity {
                     lS.setCp_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextCPStudio)).getText().toString()));
                    /* lS.setComplements_adresse_logements((char) Integer.parseInt(((EditText) findViewById(R.id.editTextComplementAdresseStudio)).getText().toString()));*/
                     lS.setPrix_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextPrixStudio)).getText().toString()));
-                    lS.setSurface_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextVilleStudio)).getText().toString()));
-                    Toast.makeText(getApplicationContext(), lS.getRue_logements()+" \n"+lS.getVille_logements()+" \n"+lS.getCp_logements()+" ", Toast.LENGTH_LONG).show();
-                    break;
+                    lS.setSurface_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextSurfaceStudio)).getText().toString()));
+                    /*Toast.makeText(getApplicationContext(), lS.getRue_logements()+" \n"+lS.getVille_logements()+" \n"+lS.getCp_logements()+" ", Toast.LENGTH_LONG).show();*/
+                    l.inserer(lS);
+                break;
                 case R.id.buttonAjouterCCH:
 /*le clic sur le bouton a eu lieu, qu'est-ce que l'on fait*/
                     Toast.makeText(getApplicationContext(), "Enregistrement de la chambre habitant en cours", Toast.LENGTH_SHORT).show();
@@ -124,8 +131,9 @@ public class AjoutLogement extends AppCompatActivity {
                     lC.setCp_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextCPCCH)).getText().toString()));
                    /* lC.setComplements_adresse_logements((char) Integer.parseInt(((EditText) findViewById(R.id.editTextComplementAdresseCCH)).getText().toString()));*/
                     lC.setPrix_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextPrixCCH)).getText().toString()));
-                    lC.setSurface_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextVilleCCH)).getText().toString()));
-                    Toast.makeText(getApplicationContext(), lC.getRue_logements()+" \n"+lC.getVille_logements()+" \n"+lC.getCp_logements()+" ", Toast.LENGTH_LONG).show();
+                    lC.setSurface_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextSurfaceCCH)).getText().toString()));
+                    /*Toast.makeText(getApplicationContext(), lC.getRue_logements()+" \n"+lC.getVille_logements()+" \n"+lC.getCp_logements()+" ", Toast.LENGTH_LONG).show();*/
+                    l.inserer(lC);
                     break;
             }
         }
