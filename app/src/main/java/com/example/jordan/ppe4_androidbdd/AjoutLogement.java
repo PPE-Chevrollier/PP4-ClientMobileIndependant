@@ -1,7 +1,15 @@
 package com.example.jordan.ppe4_androidbdd;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -19,12 +27,23 @@ import android.widget.Toast;
 
 public class AjoutLogement extends AppCompatActivity {
 
+    private static final int SELECTED_PICTURE = 1;
+
+    EditText rue_logements, cp_logements, complements_adresse_logements, prix_logements, surface_logements;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajout_logement);
+
+
         /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);*/
+
+        rue_logements=(EditText) findViewById(R.id.editTextRueAppartement);
+        cp_logements=(EditText) findViewById(R.id.editTextCPAppartement);
+        complements_adresse_logements=(EditText) findViewById(R.id.editTextComplementAdresseAppartement);
+        prix_logements=(EditText) findViewById(R.id.editTextPrixAppartement);
+        surface_logements=(EditText) findViewById(R.id.editTextSurfaceAppartement);
 
         Spinner spinnerA = (Spinner) findViewById(R.id.villes_spinnerA);
         Spinner spinnerS = (Spinner) findViewById(R.id.villes_spinnerS);
@@ -83,9 +102,11 @@ public class AjoutLogement extends AppCompatActivity {
 
     }
 
+
+
     private View.OnClickListener btnclick = new View.OnClickListener() {
         public void onClick(View v) {
-            LogementDAO l = new LogementDAO();
+
             switch (v.getId()) {
 
                 case R.id.buttonAjouterAppartement:
@@ -93,47 +114,52 @@ public class AjoutLogement extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Enregistrement de l'appartement en cours", Toast.LENGTH_SHORT).show();
 //création d'un nouveau Client en récupérant les id des différents champs
 //pour récupérer un élément par son id on utilise la méthode findViewById :
-                    Logement lA = new Logement();
-                    lA.setRue_logements(((EditText) findViewById(R.id.editTextRueAppartement)).getText().toString());
-                    /*lA.setVille_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextVilleAppartement)).getText().toString()));*/
-                    lA.setCp_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextCPAppartement)).getText().toString()));
-                    lA.setComplements_adresse_logements(((EditText) findViewById(R.id.editTextComplementAdresseAppartement)).getText().toString());
-                    lA.setPrix_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextPrixAppartement)).getText().toString()));
-                    lA.setSurface_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextSurfaceAppartement)).getText().toString()));
-                    /*Toast.makeText(getApplicationContext(), lA.getRue_logements()+" \n"+lA.getVille_logements()+" \n"+lA.getCp_logements()+" \n"+lA.getPrix_logements()+" \n"+lA.getSurface_logements(), Toast.LENGTH_LONG).show();*/
-                    Log.d("logement",lA.toString());
-                    l.inserer(lA);
+                    Appartements A1 = new Appartements();
+                    A1.setRue_logements(((EditText) findViewById(R.id.editTextRueAppartement)).getText().toString());
+                    /*A1.setVille_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextVilleAppartement)).getText().toString()));*/
+                    A1.setCp_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextCPAppartement)).getText().toString()));
+                    A1.setComplements_adresse_logements(((EditText) findViewById(R.id.editTextComplementAdresseAppartement)).getText().toString());
+                    A1.setPrix_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextPrixAppartement)).getText().toString()));
+                    A1.setSurface_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextSurfaceAppartement)).getText().toString()));
+                    A1.setNb_places_appartements(Integer.parseInt(((EditText) findViewById(R.id.editTextNbPlacesAppartement)).getText().toString()));
+                    A1.setNb_chambres_appartements(Integer.parseInt(((EditText) findViewById(R.id.editTextNbChambresAppartement)).getText().toString()));
+                    Toast.makeText(getApplicationContext(),"Nom de la rue: "+A1.getRue_logements()+" \nCode Postal: "+A1.getCp_logements()+" \nComplement adresse: "+A1.getComplements_adresse_logements()+" \nPrix: "+A1.getPrix_logements()+"€ \nSurface: "+A1.getSurface_logements()+" m² \nNombres de places: "+A1.getNb_places_appartements()+" \nNombres de chambres: "+A1.getNb_chambres_appartements(), Toast.LENGTH_LONG).show();
+                    Log.d("Appartement",A1.toString());
+                    /*l.inserer(A1);*/
 
                 break;
                 case R.id.buttonAjouterStudio:
 /*le clic sur le bouton a eu lieu, qu'est-ce que l'on fait*/
                     Toast.makeText(getApplicationContext(), "Enregistrement du studio en cours", Toast.LENGTH_SHORT).show();
-//création d'un nouveau Client en récupérant les id des différents champs
-//pour récupérer un élément par son id on utilise la méthode findViewById :
-                    Logement lS = new Logement();
-                    lS.setRue_logements(((EditText) findViewById(R.id.editTextRueStudio)).getText().toString());
-                    /*lS.setVille_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextVilleStudio)).getText().toString()));*/
-                    lS.setCp_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextCPStudio)).getText().toString()));
-                   /* lS.setComplements_adresse_logements((char) Integer.parseInt(((EditText) findViewById(R.id.editTextComplementAdresseStudio)).getText().toString()));*/
-                    lS.setPrix_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextPrixStudio)).getText().toString()));
-                    lS.setSurface_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextSurfaceStudio)).getText().toString()));
-                    /*Toast.makeText(getApplicationContext(), lS.getRue_logements()+" \n"+lS.getVille_logements()+" \n"+lS.getCp_logements()+" ", Toast.LENGTH_LONG).show();*/
-                    l.inserer(lS);
+
+                    Studios S1 = new Studios();
+                    S1.setRue_logements(((EditText) findViewById(R.id.editTextRueStudio)).getText().toString());
+                    /*S1.setVille_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextVilleStudio)).getText().toString()));*/
+                    S1.setCp_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextCPStudio)).getText().toString()));
+                    S1.setComplements_adresse_logements(((EditText) findViewById(R.id.editTextComplementAdresseStudio)).getText().toString());
+                    S1.setPrix_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextPrixStudio)).getText().toString()));
+                    S1.setSurface_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextSurfaceStudio)).getText().toString()));
+                    S1.setMeuble_studios(Integer.parseInt(((EditText) findViewById(R.id.editTextMeubleStudio)).getText().toString()));
+                    Toast.makeText(getApplicationContext(),"Nom de la rue: "+S1.getRue_logements()+" \nCode Postal: "+S1.getCp_logements()+" \nComplement adresse: "+S1.getComplements_adresse_logements()+" \nPrix: "+S1.getPrix_logements()+"€ \nSurface: "+S1.getSurface_logements()+" m² \nStudio meublés: "+S1.getMeuble_studios(), Toast.LENGTH_LONG).show();
+                    Log.d("Studio",S1.toString());
+                   /* l.inserer(S1);*/
                 break;
                 case R.id.buttonAjouterCCH:
 /*le clic sur le bouton a eu lieu, qu'est-ce que l'on fait*/
                     Toast.makeText(getApplicationContext(), "Enregistrement de la chambre habitant en cours", Toast.LENGTH_SHORT).show();
 //création d'un nouveau Client en récupérant les id des différents champs
 //pour récupérer un élément par son id on utilise la méthode findViewById :
-                    Logement lC = new Logement();
-                    lC.setRue_logements(((EditText) findViewById(R.id.editTextRueCCH)).getText().toString());
-                    /*lC.setVille_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextVilleCCH)).getText().toString()));*/
-                    lC.setCp_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextCPCCH)).getText().toString()));
-                   /* lC.setComplements_adresse_logements((char) Integer.parseInt(((EditText) findViewById(R.id.editTextComplementAdresseCCH)).getText().toString()));*/
-                    lC.setPrix_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextPrixCCH)).getText().toString()));
-                    lC.setSurface_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextSurfaceCCH)).getText().toString()));
-                    /*Toast.makeText(getApplicationContext(), lC.getRue_logements()+" \n"+lC.getVille_logements()+" \n"+lC.getCp_logements()+" ", Toast.LENGTH_LONG).show();*/
-                    l.inserer(lC);
+                    chambresHabitant CH1 = new chambresHabitant();
+                    CH1.setRue_logements(((EditText) findViewById(R.id.editTextRueCCH)).getText().toString());
+                    /*CH1.setVille_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextVilleCCH)).getText().toString()));*/
+                    CH1.setCp_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextCPCCH)).getText().toString()));
+                    CH1.setComplements_adresse_logements(((EditText) findViewById(R.id.editTextComplementAdresseCCH)).getText().toString());
+                    CH1.setPrix_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextPrixCCH)).getText().toString()));
+                    CH1.setSurface_logements(Integer.parseInt(((EditText) findViewById(R.id.editTextSurfaceCCH)).getText().toString()));
+                    /*CH1.setParties_communes_chambreshabitant(((EditText) findViewById(R.id.editTextPrixCCH)).getText().toString()));*/
+                    Toast.makeText(getApplicationContext(),"Nom de la rue: "+CH1.getRue_logements()+" \nCode Postal: "+CH1.getCp_logements()+" \nComplement adresse: "+CH1.getComplements_adresse_logements()+" \nPrix: "+CH1.getPrix_logements()+"€ \nSurface: "+CH1.getSurface_logements()+" m² \nParties communes: "+CH1.getParties_communes_chambreshabitant(), Toast.LENGTH_LONG).show();
+                    Log.d("Chambre chez l'habitant",CH1.toString());
+                    /*l.inserer(CH1);*/
                     break;
             }
         }
@@ -169,4 +195,36 @@ public class AjoutLogement extends AppCompatActivity {
             }
         });*/
             };
+
+    public void fab(View v){
+        Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(i, SELECTED_PICTURE);
+    }
+@Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+            case SELECTED_PICTURE: {
+                if (resultCode == RESULT_OK && data != null && data.getData() != null) {
+                    Uri uri = data.getData();
+                    String[] projection = {MediaStore.Images.Media.DATA};
+
+                    Cursor cursor=getContentResolver().query(uri, projection, null, null, null);
+                    cursor.moveToFirst();
+
+                    int columnIndex=cursor.getColumnIndex(projection[0]);
+                    String filePath=cursor.getString(columnIndex);
+                    cursor.close();
+
+                    Bitmap yourSelectedImage= BitmapFactory.decodeFile(filePath);
+                    Drawable d = new BitmapDrawable(yourSelectedImage);
+
+
+                }
+
+            }
+                break;
+            }
         }
+    }

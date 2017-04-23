@@ -4,15 +4,15 @@ package com.example.jordan.ppe4_androidbdd;
  * Created by jordan on 10/03/2017.
  */
 
-public class Logement {
+public abstract class Logement {
     private static int id_max;
-    private int id_logements;
-    private String rue_logements;
-    private int ville_logements;
-    private int cp_logements;
-    private String complements_adresse_logements;
-    private int prix_logements;
-    private int surface_logements;
+    protected int id_logements;
+    protected String rue_logements;
+    protected int ville_logements;
+    protected int cp_logements;
+    protected String complements_adresse_logements;
+    protected int prix_logements;
+    protected int surface_logements;
     public Logement(){
         id_max++;
         id_logements = id_max;
@@ -85,9 +85,9 @@ public class Logement {
     }
 //endregion
 
-    public String toString(){
-        return "ID : "+id_logements+"\nRue : "+rue_logements+"\nVille : "+ville_logements+"\nCP : "+cp_logements+"\nComplement adresse: "+complements_adresse_logements+"\nPrix : "+prix_logements+"\nSurface : "+surface_logements ;
-    }
+    public abstract String toString();
+        /*return "ID : "+id_logements+"\nRue : "+rue_logements+"\nVille : "+ville_logements+"\nCP : "+cp_logements+"\nComplement adresse: "+complements_adresse_logements+"\nPrix : "+prix_logements+"\nSurface : "+surface_logements ;*/
+
 
 
 }

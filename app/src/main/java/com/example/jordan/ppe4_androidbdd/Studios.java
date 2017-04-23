@@ -25,4 +25,8 @@ public class Studios extends Logement{
         this.meuble_studios = meuble_studios;
     }
     //endregion
+
+    public String toString(){
+        return "ID : "+id_logements+"\nRue : "+rue_logements+"\nVille : "+ville_logements+"\nCP : "+cp_logements+"\nComplement adresse: "+complements_adresse_logements+"\nPrix : "+prix_logements+"\nSurface : "+surface_logements+"\nStudio meublé: "+meuble_studios ;
+    }
 }

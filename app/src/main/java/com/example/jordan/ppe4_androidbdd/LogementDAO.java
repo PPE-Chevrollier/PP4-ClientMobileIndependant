@@ -76,11 +76,11 @@ public class LogementDAO extends DAOBase{
      * @return listeTmpClient liste des clients récuupés dans la BDD via un curseur
      * */
 
-    public ArrayList<Logement> listeLogement() {
-        ArrayList<Logement> listeTmpLogement = new ArrayList<Logement>();
+    public ArrayList<Logement> listeAppartement() {
+        ArrayList<Logement> listeTmpAppartement = new ArrayList<Logement>();
             /*ici mDb est accessible car en protected dans la classe mère*/
         Cursor c = mDb.rawQuery(LES_LOGEMENTS,null);
-        Logement log;
+        Appartements app;
         while (c.moveToNext()) {
             //c.getString(0) correspond à l'id du client
 
@@ -89,13 +89,16 @@ public class LogementDAO extends DAOBase{
                 int cp_logements = Integer.parseInt(c.getString(3));
                 String complements_adresse_logements = c.getString(4);
                 int prix_logements = Integer.parseInt(c.getString(5));
-                int surface_logements = Integer.parseInt(c.getString(5));
-                log = new Logement (rue_logements, ville_logements, cp_logements, complements_adresse_logements, prix_logements, surface_logements);
-                Log.i("logement", log.toString());
-                listeTmpLogement.add(log);
+                int surface_logements = Integer.parseInt(c.getString(6));
+                int nb_places_appartements = Integer.parseInt(c.getString(7));
+                int nb_chambres_appartements = Integer.parseInt(c.getString(8));
+
+                app = new Appartements (rue_logements, ville_logements, cp_logements, complements_adresse_logements, prix_logements, surface_logements, nb_places_appartements, nb_chambres_appartements);
+                Log.i("logement", app.toString());
+                listeTmpAppartement.add(app);
         }
         c.close();
-        return listeTmpLogement;
+        return listeTmpAppartement;
 
     }
 

@@ -22,7 +22,7 @@ public class Appartements extends Logement {
         return nb_places_appartements;
     }
 
-    public void setNb_places_appartements(char nb_places_appartements) {
+    public void setNb_places_appartements(int nb_places_appartements) {
         this.nb_places_appartements = nb_places_appartements;
     }
 
@@ -30,8 +30,12 @@ public class Appartements extends Logement {
         return nb_chambres_appartements;
     }
 
-    public void setNb_chambres_appartements(char nb_chambres_appartements) {
+    public void setNb_chambres_appartements(int nb_chambres_appartements) {
         this.nb_chambres_appartements = nb_chambres_appartements;
     }
     //endregion
+
+    public String toString(){
+        return "ID : "+id_logements+"\nRue : "+rue_logements+"\nVille : "+ville_logements+"\nCP : "+cp_logements+"\nComplement adresse: "+complements_adresse_logements+"\nPrix : "+prix_logements+"\nSurface : "+surface_logements+"\nNombre places: "+nb_places_appartements+"\nNombre chambres: "+nb_chambres_appartements ;
+    }
 }

@@ -26,10 +26,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></TabWidget>
 
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/ScrollView01"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:clipToPadding="false"
+            android:scrollbarStyle="insideOverlay">
+
         <FrameLayout
         android:id="@android:id/tabcontent"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
 
             <LinearLayout
                 android:id="@+id/Appartement"
@@ -119,7 +127,6 @@
                         android:layout_height="match_parent"
                         android:id="@+id/complementAdresseAppartement"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                        android:layout_alignParentTop="true"
                         android:layout_below="@+id/rueAdresseAppartement"
                         android:layout_toLeftOf="@+id/editTextComplementAdresseAppartement" />
 
@@ -186,7 +193,9 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="60dp">
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
+
                     <TextView
                         android:text="@string/NbPlaces"
                         android:layout_width="145dp"
@@ -205,20 +214,59 @@
                         android:id="@+id/editTextNbPlacesAppartement"
                         android:background="@drawable/contour_zonetexte"
                         android:layout_below="@+id/editTextSurfaceAppartement"
-                        android:layout_toRightOf="@+id/NbPlacesAppartement"
-                        android:layout_alignParentEnd="true" />
+                        android:layout_toRightOf="@+id/NbPlacesAppartement" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="397dp"
+                    android:layout_height="72dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:text="@string/NbChambres"
+                        android:layout_width="145dp"
+                        android:layout_height="64dp"
+                        android:id="@+id/nbChambresAppartement"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:layout_alignParentTop="true"
+                        android:layout_below="@+id/nbPlacesAppartement"
+                        android:layout_toLeftOf="@+id/editTextNbChambresAppartement" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:inputType="textPostalAddress"
+                        android:ems="10"
+                        android:id="@+id/editTextNbChambresAppartement"
+                        android:background="@drawable/contour_zonetexte"
+                        android:layout_below="@+id/editTextPlacesAppartement"
+                        android:layout_toRightOf="@+id/NbChambresAppartement"
+                        android:layout_alignParentEnd="true"/>
 
 
                 </LinearLayout>
 
-                <Button
-                    android:text="Ajouter"
-                    android:layout_width="152dp"
+                <android.support.design.widget.FloatingActionButton
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="cliqueButtonAjouterA"
-                    android:id="@+id/buttonAjouterAppartement"
-                    android:elevation="0dp" />
+                    android:clickable="true"
+                    app:fabSize="mini"
+                    app:srcCompat="@android:drawable/ic_menu_camera"
+                    android:onClick="fab"
+                    android:id="@+id/fab"
+                    app:backgroundTint="@color/colorPrimary"
+                    android:layout_gravity="right" />
 
+                <Button
+                android:text="Ajouter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="cliqueButtonAjouterA"
+                android:id="@+id/buttonAjouterAppartement"
+                android:layout_below="@+id/nbChambresAppartement"
+                android:elevation="0dp"
+                    android:layout_weight="0.05" />
             </LinearLayout>
 
             <LinearLayout
@@ -376,32 +424,35 @@
                 android:layout_height="60dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/NbPlaces"
+                    android:text="@string/MeubleStudio"
                     android:layout_width="145dp"
                     android:layout_height="match_parent"
-                    android:id="@+id/nbPlacesStudio"
+                    android:id="@+id/MeubleStudio"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:layout_alignParentTop="true"
                     android:layout_below="@+id/SurfaceStudio"
-                    android:layout_toLeftOf="@+id/editTextNbPlacesStudio" />
+                    android:layout_toLeftOf="@+id/editTextMeubleStudio" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textPostalAddress"
                     android:ems="10"
-                    android:id="@+id/editTextNbPlacesStudio"
+                    android:id="@+id/editTextMeubleStudio"
                     android:background="@drawable/contour_zonetexte"
                     android:layout_below="@+id/editTextSurfaceStudio"
-                    android:layout_toRightOf="@+id/NbPlacesStudio"
+                    android:layout_toRightOf="@+id/MeubleStudio"
                     android:layout_alignParentEnd="true" />
                 </LinearLayout>
                 <Button
                     android:text="Ajouter"
-                    android:layout_width="152dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="cliqueButtonAjouterS"
-                    android:id="@+id/buttonAjouterStudio" />
+                    android:id="@+id/buttonAjouterStudio"
+                    android:layout_below="@+id/nbChambresStudio"
+                    android:elevation="0dp"
+                    android:layout_weight="0.05" />
     </LinearLayout>
 
 
@@ -564,37 +615,43 @@
                 android:layout_height="60dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/NbPlaces"
+                    android:text="@string/PartiesCommunesCCH"
                     android:layout_width="145dp"
                     android:layout_height="match_parent"
-                    android:id="@+id/nbPlacesCCH"
+                    android:id="@+id/PartiesCommunesCCH"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:layout_alignParentTop="true"
                     android:layout_below="@+id/SurfaceCCH"
-                    android:layout_toLeftOf="@+id/editTextNbPlacesCCH" />
+                    android:layout_toLeftOf="@+id/editTextPartiesCommunesCCH" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textPostalAddress"
                     android:ems="10"
-                    android:id="@+id/editTextNbPlacesCCH"
+                    android:id="@+id/editTextPartiesCommunesCCH"
                     android:background="@drawable/contour_zonetexte"
                     android:layout_below="@+id/editTextSurfaceCCH"
-                    android:layout_toRightOf="@+id/NbPlacesCCH"
+                    android:layout_toRightOf="@+id/PartiesCommunesCCH"
                     android:layout_alignParentEnd="true" />
                 </LinearLayout>
                 <Button
                     android:text="Ajouter"
-                    android:layout_width="152dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="cliqueButtonAjouterC"
-                    android:id="@+id/buttonAjouterCCH" />
+                    android:onClick="cliqueButtonAjouterCCH"
+                    android:id="@+id/buttonAjouterCCH"
+                    android:layout_below="@+id/nbChambresCCH"
+                    android:elevation="0dp"
+                    android:layout_weight="0.05" />
         </LinearLayout>
 
         </FrameLayout>
+</ScrollView>
 
     </LinearLayout>
+
+
     </TabHost>
 
 
